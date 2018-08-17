@@ -1,5 +1,5 @@
 {
-    "name": "miquido/observable",,
+    "name": "miquido/observable",
     "description": "Observable library",
     "type": "library",
     "require": {
