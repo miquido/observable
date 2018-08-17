@@ -1,6 +1,6 @@
 {
-    "name": "miquido/observable",
-    "version": "1.0.1",
+    "name": "miquido/observable",,
+    "description": "Observable library",
     "type": "library",
     "require": {
         "php": "^7.1.3"
