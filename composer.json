@@ -10,9 +10,18 @@
         "phpunit/phpunit": "^6"
     },
     "autoload": {
-        "psr-4": { "Miquido\\Observable\\": "src" },
-        "exclude-from-classmap": [
-            "/Tests/"
+        "psr-4": {
+            "Miquido\\Observable\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Miquido\\Observable\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "phpunit": [
+            "phpunit --colors=always"
         ]
     }
 }
