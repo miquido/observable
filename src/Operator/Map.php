@@ -27,11 +27,11 @@ final class Map implements OperatorInterface
     {
         return new Observable(function (ObserverInterface $observer) use ($source): void {
             $source->subscribe(new Observer(
-               function ($data) use ($observer): void {
-                   $observer->next(\call_user_func($this->map, $data));
-               },
-               new OnCompleteProxy($observer)
-           ));
+                function ($data) use ($observer): void {
+                    $observer->next(\call_user_func($this->map, $data));
+                },
+                new OnCompleteProxy($observer)
+            ));
         });
     }
 }
