@@ -7,12 +7,12 @@ namespace Miquido\Observable;
 final class Observer implements ObserverInterface
 {
     /**
-     * @var callable
+     * @var callable|null
      */
     private $onNext;
 
     /**
-     * @var callable
+     * @var callable|null
      */
     private $onComplete;
 
