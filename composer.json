@@ -31,6 +31,9 @@
             "@analyse",
             "@phpunit"
         ],
+        "code-coverage": [
+            "phpunit --coverage-clover clover.xml --colors=always"
+        ],
         "fix": "php-cs-fixer fix -v --ansi",
         "phpunit": [
             "phpunit --colors=always"
