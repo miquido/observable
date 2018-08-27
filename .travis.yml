@@ -13,6 +13,19 @@ matrix:
   include:
     - php: '7.1'
     - php: '7.2'
+      before_script:
+        - >-
+          curl -L
+          https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+          > ./cc-test-reporter
+        - 'chmod +x ./cc-test-reporter'
+        - './cc-test-reporter before-build'
+      after_success:
+        - >-
+          ./cc-test-reporter after-build -t clover --exit-code
+          $TRAVIS_TEST_RESULT
+      env:
+        - COVERAGE=1
     - php: '7.2'
       env:
         - COMPOSER_METHOD=update --prefer-lowest
@@ -24,4 +37,6 @@ install:
   - 'composer $COMPOSER_METHOD --prefer-dist --no-progress --no-suggest --no-scripts --ansi'
 
 script:
-  - 'composer test'
+  - 'if [[ "$COVERAGE" != "1" ]]; then composer test; fi'
+  - 'if [[ "$COVERAGE" == "1" ]]; then composer analyse; fi'
+  - 'if [[ "$COVERAGE" == "1" ]]; then composer code-coverage; fi'
