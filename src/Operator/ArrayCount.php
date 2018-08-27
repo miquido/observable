@@ -9,7 +9,6 @@ use Miquido\Observable\OperatorInterface;
 
 final class ArrayCount implements OperatorInterface
 {
-
     public function process(ObservableInterface $source): ObservableInterface
     {
         return $source->pipe(new Map(function (array $data): int {

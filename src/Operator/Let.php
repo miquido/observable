@@ -8,8 +8,8 @@ use Miquido\Observable\Observable;
 use Miquido\Observable\ObservableInterface;
 use Miquido\Observable\Observer;
 use Miquido\Observable\ObserverInterface;
-use Miquido\Observable\Utils\OnCompleteProxy;
 use Miquido\Observable\OperatorInterface;
+use Miquido\Observable\Utils\OnCompleteProxy;
 
 final class Let implements OperatorInterface
 {
@@ -27,7 +27,7 @@ final class Let implements OperatorInterface
     {
         return new Observable(function (ObserverInterface $observer) use ($source): void {
             $source->subscribe(new Observer(
-                function($data) use ($observer): void {
+                function ($data) use ($observer): void {
                     \call_user_func($this->callback, $data);
                     $observer->next($data);
                 },

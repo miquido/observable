@@ -18,7 +18,7 @@ final class OnCompleteProxy
         $this->observer = $observer;
     }
 
-    public function __invoke()
+    public function __invoke(): void
     {
         $this->observer->complete();
     }

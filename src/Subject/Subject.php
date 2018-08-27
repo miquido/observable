@@ -45,10 +45,10 @@ final class Subject implements ObserverInterface, ObservableInterface
     public function pass(ObservableInterface $observable): void
     {
         $observable->subscribe(new Observer(
-            function ($data) {
+            function ($data): void {
                 $this->next($data);
             },
-            function () {
+            function (): void {
                 $this->complete();
             }
         ));

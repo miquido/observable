@@ -40,7 +40,7 @@ final class BufferCount implements OperatorInterface
                         $buffer = [];
                     }
                 },
-                function () use ($observer, &$buffer) {
+                function () use ($observer, &$buffer): void {
                     if ($this->releaseOnComplete && \count($buffer)) {
                         $observer->next($buffer);
                         $buffer = [];

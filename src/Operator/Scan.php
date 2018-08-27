@@ -31,11 +31,10 @@ final class Scan implements OperatorInterface
             $source->subscribe(new Observer(function ($data) use ($observer, &$acc): void {
                 $acc = \call_user_func($this->callback, $acc, $data);
                 $observer->next($acc);
-            }, function () use ($observer, &$acc) {
+            }, function () use ($observer, &$acc): void {
                 $observer->next($acc);
                 $observer->complete();
             }));
         });
     }
-
 }

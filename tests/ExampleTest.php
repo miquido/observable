@@ -6,12 +6,10 @@ namespace Miquido\Observable\Tests;
 
 use PHPUnit\Framework\TestCase;
 
-class TestExample extends TestCase
+class ExampleTest extends TestCase
 {
-
     public function testIfUnitTestWorks(): void
     {
         $this->assertTrue(true);
     }
-
 }

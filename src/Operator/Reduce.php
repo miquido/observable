@@ -30,7 +30,7 @@ final class Reduce implements OperatorInterface
             $acc = $this->initial;
             $source->subscribe(new Observer(function ($data) use (&$acc): void {
                 $acc = \call_user_func($this->callback, $acc, $data);
-            }, function () use ($observer, &$acc) {
+            }, function () use ($observer, &$acc): void {
                 $observer->next($acc);
                 $observer->complete();
             }));
