@@ -1,0 +1,27 @@
+language: php
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+env:
+  global:
+    - COMPOSER_METHOD=update
+
+matrix:
+  include:
+    - php: '7.1'
+    - php: '7.2'
+    - php: '7.2'
+      env:
+        - COMPOSER_METHOD=update --prefer-lowest
+
+before_install:
+  - 'export PATH="$PATH:$HOME/.composer/vendor/bin"'
+
+install:
+  - 'composer $COMPOSER_METHOD --prefer-dist --no-progress --no-suggest --no-scripts --ansi'
+
+script:
+  - 'composer phpunit'
