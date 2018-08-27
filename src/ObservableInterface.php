@@ -6,7 +6,7 @@ namespace Miquido\Observable;
 
 interface ObservableInterface
 {
-    public function pipe(OperatorInterface $operator): ObservableInterface;
+    public function pipe(OperatorInterface $operator): self;
 
     /**
      * @param ObserverInterface|callable $observer

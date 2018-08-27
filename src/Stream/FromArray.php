@@ -12,7 +12,7 @@ final class FromArray
 {
     public static function create(array $data): ObservableInterface
     {
-        return new Observable(function (ObserverInterface $observer) use ($data) {
+        return new Observable(function (ObserverInterface $observer) use ($data): void {
             foreach ($data as $item) {
                 $observer->next($item);
             }

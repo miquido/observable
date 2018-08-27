@@ -9,7 +9,6 @@ use Miquido\Observable\OperatorInterface;
 
 final class Count implements OperatorInterface
 {
-
     public function process(ObservableInterface $source): ObservableInterface
     {
         return $source->pipe(new Reduce(function (int $carry): int {

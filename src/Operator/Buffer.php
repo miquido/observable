@@ -27,7 +27,7 @@ final class Buffer implements OperatorInterface
         return new Observable(function (ObserverInterface $observer) use ($source): void {
             $buffer = [];
             $completed = false;
-            $complete = function () use ($observer, &$buffer, &$completed) {
+            $complete = function () use ($observer, &$buffer, &$completed): void {
                 if (!$completed) {
                     if (\count($buffer)) {
                         $observer->next($buffer);
@@ -37,11 +37,11 @@ final class Buffer implements OperatorInterface
                     $completed = true;
                 }
             };
-            $source->subscribe(new Observer(function ($data) use (&$buffer) {
+            $source->subscribe(new Observer(function ($data) use (&$buffer): void {
                 $buffer[] = $data;
             }, $complete));
 
-            $this->toggle->subscribe(new Observer(function () use ($observer, &$buffer) {
+            $this->toggle->subscribe(new Observer(function () use ($observer, &$buffer): void {
                 $data = $buffer;
                 $observer->next($data);
                 $buffer = [];

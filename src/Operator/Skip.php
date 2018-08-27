@@ -30,13 +30,13 @@ final class Skip implements OperatorInterface
 
             $source->subscribe(new Observer(function ($data) use ($observer, &$lastValue, &$skipped): void {
                 $lastValue = $data;
-                $skipped++;
+                ++$skipped;
 
                 if ($skipped === $this->count) {
                     $skipped = 0;
                     $observer->next($lastValue);
                 }
-            }, function () use ($observer, &$lastValue, &$skipped) {
+            }, function () use ($observer, &$lastValue, &$skipped): void {
                 if ($skipped > 0) {
                     $observer->next($lastValue);
                 }

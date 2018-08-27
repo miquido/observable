@@ -24,4 +24,4 @@ install:
   - 'composer $COMPOSER_METHOD --prefer-dist --no-progress --no-suggest --no-scripts --ansi'
 
 script:
-  - 'composer phpunit'
+  - 'composer test'
