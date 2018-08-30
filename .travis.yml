@@ -7,7 +7,7 @@ cache:
 
 env:
   global:
-    - COMPOSER_METHOD=update
+    - COMPOSER_ARGS=update
 
 matrix:
   include:
@@ -28,13 +28,13 @@ matrix:
         - COVERAGE=1
     - php: '7.2'
       env:
-        - COMPOSER_METHOD=update --prefer-lowest
+        - COMPOSER_ARGS=update --prefer-lowest
 
 before_install:
   - 'export PATH="$PATH:$HOME/.composer/vendor/bin"'
 
 install:
-  - 'composer $COMPOSER_METHOD --prefer-dist --no-progress --no-suggest --no-scripts --ansi'
+  - 'composer $COMPOSER_ARGS --prefer-dist --no-progress --no-suggest --no-scripts --ansi'
 
 script:
   - 'if [[ "$COVERAGE" != "1" ]]; then composer test; fi'

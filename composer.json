@@ -1,7 +1,27 @@
 {
     "name": "miquido/observable",
-    "description": "Observable library",
     "type": "library",
+    "description": "Observable library",
+    "keywords": [
+        "PHP",
+        "Observable",
+        "Stream",
+        "Streams"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/miquido/observable",
+    "authors": [
+        {
+            "name": "Paweł Kocot",
+            "email": "pawel.kocot@miquido.com",
+            "homepage": "https://www.miquido.com"
+        },
+        {
+            "name": "Konrad Obal",
+            "email": "konrad.obal@miquido.com",
+            "homepage": "https://www.miquido.com"
+        }
+    ],
     "require": {
         "php": "^7.1.3"
     },
@@ -38,5 +58,13 @@
         "phpunit": [
             "phpunit --colors=always"
         ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "0.1.x-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
     }
 }
