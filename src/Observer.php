@@ -19,7 +19,7 @@ final class Observer implements ObserverInterface
     public static function create($observer): ObserverInterface
     {
         if (\is_callable($observer)) {
-            $observer = new self($observer);
+            $observer = new Observer($observer);
         }
 
         if (!$observer instanceof ObserverInterface) {
