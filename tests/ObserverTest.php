@@ -12,10 +12,10 @@ final class ObserverTest extends TestCase
 
     public function testStaticCreationShouldReturnObserverWhenCallbackWasGiven(): void
     {
-        $callbackMock = $this->getMockBuilder(\stdClass::class)->setMethods(['__invoke'])->getMock();
-        $callbackMock->expects($this->once())->method('__invoke')->with($this->equalTo(1));
+        $callbackMock = $this->getMockBuilder(\stdClass::class)->setMethods(['onNext'])->getMock();
+        $callbackMock->expects($this->once())->method('onNext')->with($this->equalTo(1));
 
-        $observer = Observer::create($callbackMock);
+        $observer = Observer::create([$callbackMock, 'onNext']);
         $observer->next(1);
     }
 
