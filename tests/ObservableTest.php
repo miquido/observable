@@ -32,7 +32,7 @@ final class ObservableTest extends TestCase
 
     public function testPipe(): void
     {
-        $observable = new Observable(function (ObserverInterface $observer) {
+        $observable = new Observable(function (ObserverInterface $observer): void {
             $observer->next(1);
             $observer->next(16);
             $observer->next(81);

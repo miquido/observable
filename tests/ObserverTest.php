@@ -9,7 +9,6 @@ use PHPUnit\Framework\TestCase;
 
 final class ObserverTest extends TestCase
 {
-
     public function testStaticCreationShouldReturnObserverWhenCallbackWasGiven(): void
     {
         $callbackMock = $this->getMockBuilder(\stdClass::class)->setMethods(['onNext'])->getMock();

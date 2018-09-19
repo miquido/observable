@@ -15,7 +15,7 @@ final class BufferUniqueCountTest extends TestCase
     public function testBufferUniqueCountOperator(): void
     {
         $onNext = $this->getMockBuilder(\stdClass::class)->setMethods(['__invoke'])->getMock();
-        $onNext->expects($this->exactly(3))->method('__invoke')->withConsecutive([[1, 2, 3]], [[3 , 4, 2]], [[1]]);
+        $onNext->expects($this->exactly(3))->method('__invoke')->withConsecutive([[1, 2, 3]], [[3, 4, 2]], [[1]]);
 
         $onComplete = $this->getMockBuilder(\stdClass::class)->setMethods(['__invoke'])->getMock();
         $onComplete->expects($this->once())->method('__invoke');
@@ -33,7 +33,7 @@ final class BufferUniqueCountTest extends TestCase
     public function testBufferUniqueCountOperator_NoReleaseOnComplete(): void
     {
         $onNext = $this->getMockBuilder(\stdClass::class)->setMethods(['__invoke'])->getMock();
-        $onNext->expects($this->exactly(2))->method('__invoke')->withConsecutive([[1, 2, 3]], [[3 , 4, 2]]);
+        $onNext->expects($this->exactly(2))->method('__invoke')->withConsecutive([[1, 2, 3]], [[3, 4, 2]]);
 
         $onComplete = $this->getMockBuilder(\stdClass::class)->setMethods(['__invoke'])->getMock();
         $onComplete->expects($this->once())->method('__invoke');

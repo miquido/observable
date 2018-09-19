@@ -21,7 +21,7 @@ final class ArrayCountTest extends TestCase
         $onComplete->expects($this->once())->method('__invoke');
 
         $observable = new Observable(function (ObserverInterface $observer): void {
-            $observer->next([1, 2, 3, 4, 5,]);
+            $observer->next([1, 2, 3, 4, 5]);
             $observer->complete();
         });
         $observable->pipe(new ArrayCount())->subscribe(new Observer($onNext, $onComplete));

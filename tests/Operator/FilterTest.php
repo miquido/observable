@@ -36,7 +36,7 @@ final class FilterTest extends TestCase
 
         $observable
             ->pipe(new Filter(function (int $number): bool {
-                return $number % 3 === 0;
+                return 0 === $number % 3;
             }))
             ->subscribe(new Observer($onNext, $onComplete));
     }
