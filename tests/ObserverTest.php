@@ -11,10 +11,10 @@ final class ObserverTest extends TestCase
 {
     public function testStaticCreationShouldReturnObserverWhenCallbackWasGiven(): void
     {
-        $callbackMock = $this->getMockBuilder(\stdClass::class)->setMethods(['onNext'])->getMock();
-        $callbackMock->expects($this->once())->method('onNext')->with($this->equalTo(1));
+        $callbackMock = $this->getMockBuilder(\stdClass::class)->setMethods(['__invoke'])->getMock();
+        $callbackMock->expects($this->once())->method('__invoke')->with($this->equalTo(1));
 
-        $observer = Observer::create([$callbackMock, 'onNext']);
+        $observer = Observer::create($callbackMock);
         $observer->next(1);
     }
 
@@ -37,13 +37,13 @@ final class ObserverTest extends TestCase
 
     public function testCallbacksShouldBeInvoked(): void
     {
-        $onNext = $this->getMockBuilder(\stdClass::class)->setMethods(['onNext'])->getMock();
-        $onNext->expects($this->exactly(3))->method('onNext')->withConsecutive([1], [2], [3]);
+        $onNext = $this->getMockBuilder(\stdClass::class)->setMethods(['__invoke'])->getMock();
+        $onNext->expects($this->exactly(3))->method('__invoke')->withConsecutive([1], [2], [3]);
 
-        $onComplete = $this->getMockBuilder(\stdClass::class)->setMethods(['onComplete'])->getMock();
-        $onComplete->expects($this->once())->method('onComplete');
+        $onComplete = $this->getMockBuilder(\stdClass::class)->setMethods(['__invoke'])->getMock();
+        $onComplete->expects($this->once())->method('__invoke');
 
-        $observer = new Observer([$onNext, 'onNext'], [$onComplete, 'onComplete']);
+        $observer = new Observer($onNext, $onComplete);
         $observer->next(1);
         $observer->next(2);
         $observer->next(3);
