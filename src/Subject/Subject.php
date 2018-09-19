@@ -42,18 +42,6 @@ final class Subject implements ObserverInterface, ObservableInterface
         $this->observers = [];
     }
 
-    public function pass(ObservableInterface $observable): void
-    {
-        $observable->subscribe(new Observer(
-            function ($data): void {
-                $this->next($data);
-            },
-            function (): void {
-                $this->complete();
-            }
-        ));
-    }
-
     public function asObservable(): ObservableInterface
     {
         return new Observable(function (ObserverInterface $observer): void {

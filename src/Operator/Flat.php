@@ -17,8 +17,8 @@ final class Flat implements OperatorInterface
     {
         return new Observable(function (ObserverInterface $observer) use ($source): void {
             $source->subscribe(new Observer(
-                function (array $data) use ($observer): void {
-                    foreach ($data as $item) {
+                function ($data) use ($observer): void {
+                    foreach ((array) $data as $item) {
                         $observer->next($item);
                     }
                 },

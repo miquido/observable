@@ -26,10 +26,10 @@
         "php": "^7.1.3"
     },
     "require-dev": {
-        "phpunit/phpunit": "^7.0",
         "friendsofphp/php-cs-fixer": "^2.13",
         "phpstan/phpstan": "^0.10.3",
-        "phpstan/phpstan-phpunit": "^0.10.0"
+        "phpstan/phpstan-phpunit": "^0.10.0",
+        "phpunit/phpunit": "^7.0"
     },
     "autoload": {
         "psr-4": {
@@ -44,7 +44,7 @@
     "scripts": {
         "analyse": [
             "phpstan analyze src -l 7 --ansi",
-            "phpstan analyze tests -l 7 -c phpstan.tests.neon --ansi",
+            "phpstan analyze tests -l 5 -c phpstan.tests.neon --ansi",
             "php-cs-fixer fix -v --dry-run --diff --stop-on-violation --ansi"
         ],
         "test": [
