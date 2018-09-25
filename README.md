@@ -5,9 +5,7 @@
 
 # Observable
 
-
-
-Set of utility classes for immutable data manipulation.
+Set of classes for data streams.
 
 - [Installation guide](#installation)
 - [Examples](#examples)
@@ -152,7 +150,7 @@ $words->next('dolor');
 $words->next('sit');
 $words->next('amet');
 
-// complete will send a "complete" notification to all observers and will remove observers from the subject/
+// complete will send a "complete" notification to all observers and will remove observers from the subject
 $words->complete();
 
 /**
@@ -211,7 +209,7 @@ $stream
 ```
 
 ### *BufferUniqueCount* operator
-Similar to *BufferCount*, but remove duplications.
+Similar to *BufferCount*, but removes duplications.
 ```php
 <?php
 
