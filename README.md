@@ -8,7 +8,7 @@
 Set of classes for data streams.
 
 - [Installation guide](#installation)
-- [Examples](#examples)
+- [Code Samples](#code-samples)
 - [Contributing](#contributing)
 
 ## Installation 
@@ -18,11 +18,13 @@ Use [Composer](https://getcomposer.org) to install the package:
 composer require miquido/observable
 ```
 
-## Examples
+## Code Samples
 - [Create and subscribe to a data stream](#create-and-subscribe-to-a-data-stream)
 - [Manipulate data in a stream with *Operators*](#manipulate-data-in-a-stream-with-operators)
 - [Using a *Subject*](#using-a-subject)
 - [List of build-in operators](#list-of-build-in-operators)
+
+Please also check [miquido/csv-file-reader](https://github.com/miquido/csv-file-reader) library for more real-life examples.
 
 ### Create and subscribe to a data stream
 
