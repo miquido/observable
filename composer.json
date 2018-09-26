@@ -2,6 +2,7 @@
     "name": "miquido/observable",
     "type": "library",
     "description": "Observable library",
+    "version": "0.9.0",
     "keywords": [
         "PHP",
         "Observable",
