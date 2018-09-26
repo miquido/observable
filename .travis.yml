@@ -45,7 +45,7 @@ script:
 before_deploy:
   - >-
       export VERSION=$(cat ./composer.json | grep version | sed -E
-      "s/\s+\"version\": \"(.*)\",/\1/") && echo "VERSION=${VERSION}"
+      "s/\s+\"version\": \"v(.*)\",/\1/") && echo "VERSION=${VERSION}"
   - yarn global add conventional-changelog-cli conventional-recommended-bump conventional-github-releaser
 
 deploy:
